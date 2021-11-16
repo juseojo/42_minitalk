@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seongjch <seongjch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 14:01:05 by seongjch          #+#    #+#             */
-/*   Updated: 2021/11/16 15:29:46 by seongjch         ###   ########.fr       */
+/*   Created: 2021/11/16 15:30:12 by seongjch          #+#    #+#             */
+/*   Updated: 2021/11/16 15:40:08 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *ptr, int value, size_t num)
+void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*str;
+	unsigned char	*bt;
 	int				i;
 
-	str = ptr;
+	s = bt;
 	i = 0;
-	while (i < num)
+	while (i < n)
 	{
-		*(str + i) = value;
+		*(s + i) = 0;
 		i++;
 	}
-	return (ptr);
 }
