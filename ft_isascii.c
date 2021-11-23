@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongjch <seongjch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seongjch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 15:39:03 by seongjch          #+#    #+#             */
-/*   Updated: 2021/11/23 13:40:26 by seongjch         ###   ########.fr       */
+/*   Created: 2021/11/23 13:54:48 by seongjch          #+#    #+#             */
+/*   Updated: 2021/11/23 13:58:49 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void	*dst, const void	*src, size_t	n)
+int	ft_isascii(int c)
 {
-	unsigned char	*b_dst;
-	unsigned char	*b_src;
-	int				i;
-
-	i = 0;
-	b_dst = dst;
-	b_src = src;
-	while (i < n)
+	if (0 < c && c < 177)
 	{
-		*(b_dst + i) = *(b_src + i);
-		i++;
+		return (1);
 	}
-	return (dst);
+	return (0);
 }

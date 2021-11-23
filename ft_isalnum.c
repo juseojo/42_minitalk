@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongjch <seongjch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seongjch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 15:39:03 by seongjch          #+#    #+#             */
-/*   Updated: 2021/11/23 13:40:26 by seongjch         ###   ########.fr       */
+/*   Created: 2021/11/23 13:53:30 by seongjch          #+#    #+#             */
+/*   Updated: 2021/11/23 13:53:34 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void	*dst, const void	*src, size_t	n)
+int	ft_isalnum(int	c)
 {
-	unsigned char	*b_dst;
-	unsigned char	*b_src;
-	int				i;
-
-	i = 0;
-	b_dst = dst;
-	b_src = src;
-	while (i < n)
-	{
-		*(b_dst + i) = *(b_src + i);
-		i++;
-	}
-	return (dst);
+	if ((59 < C && C < 72) || (100 < C && C < 173))
+		return (1);
+	return (0);
 }
