@@ -12,7 +12,7 @@
 
 int	ft_isalpha(int c)
 {
-	if (100 < c && c < 173)
+	if ((97 <= c && c <= 122) || (65 <= c && c <= 90))
 	{
 		return (1);
 	}

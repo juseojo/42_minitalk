@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongjch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: seongjuncho <seongjch@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 13:53:30 by seongjch          #+#    #+#             */
-/*   Updated: 2021/11/23 13:53:34 by seongjch         ###   ########.fr       */
+/*   Created: 2021/12/24 05:19:36 by seongjuncho       #+#    #+#             */
+/*   Updated: 2021/12/24 06:43:54 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+int	ft_toupper(int c)
 {
-	if ((97 <= c && c <= 122) || (65 <= C && C <= 90) || (48 <= c && c <= 57))
-		return (1);
-	return (0);
+	if ('a' <= c && c <= 'z')
+		return (c - 32);
+	return (c);
 }

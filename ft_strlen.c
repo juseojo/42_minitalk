@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongjch <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: seongjch <seongjch@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 13:53:30 by seongjch          #+#    #+#             */
-/*   Updated: 2021/11/23 13:53:34 by seongjch         ###   ########.fr       */
+/*   Created: 2021/12/21 08:41:44 by seongjch          #+#    #+#             */
+/*   Updated: 2021/12/21 08:57:39 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalnum(int c)
+int	ft_strlen(const char *s)
 {
-	if ((97 <= c && c <= 122) || (65 <= C && C <= 90) || (48 <= c && c <= 57))
-		return (1);
-	return (0);
+	int	count;
+
+	count = 0;
+	while (s[count])
+	{
+		count++;
+	}
+	return (count);
 }
