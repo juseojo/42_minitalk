@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongjch <seongjch@student.42.fr>          +#+  +:+       +#+        */
+/*   By: seongjuncho <seongjch@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/16 15:39:03 by seongjch          #+#    #+#             */
-/*   Updated: 2021/12/26 06:01:17 by seongjuncho      ###   ########.fr       */
+/*   Created: 2021/12/25 00:59:51 by seongjuncho       #+#    #+#             */
+/*   Updated: 2021/12/26 05:36:02 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memcpy(void	*dst, const void	*src, size_t	n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*b_dst;
-	unsigned char	*b_src;
-	unsigned int	i;
+	unsigned char	*b_s;
+	unsigned int	cnt;
 
-	i = 0;
-	b_dst = dst;
-	b_src = src;
-	while (i < n)
+	cnt = 0;
+	b_s = s;
+	while (cnt < n)
 	{
-		*(b_dst + i) = *(b_src + i);
-		i++;
+		if (*(b_s + cnt) == c)
+		{
+			return (b_s + cnt);
+		}
+		cnt++;
 	}
-	return (dst);
+	return (0);
 }
