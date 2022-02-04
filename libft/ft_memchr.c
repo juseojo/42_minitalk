@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seongjuncho <seongjch@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 06:55:38 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/01/07 17:00:24 by seongjuncho      ###   ########.fr       */
+/*   Created: 2021/12/25 00:59:51 by seongjuncho       #+#    #+#             */
+/*   Updated: 2022/02/04 17:40:31 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*b_dst;
-	unsigned char	*b_src;
-	unsigned int	cnt;
+	char	*b_s;
+	size_t		cnt;
 
 	cnt = 0;
-	b_src = src;
-	b_dst = dst;
-
-	if (dst < src)
+	b_s = (char *)s;
+	while (cnt < n)
 	{
-		while (cnt < len)
+		if (*(b_s + cnt) == c)
 		{
-			*(b_dst + cnt) = *(b_src + cnt);
-			cnt++;
+			return (b_s + cnt);
 		}
-	}
-	else
-	{
 		cnt++;
-		while (cnt < len)
-		{
-			*(b_dst + len - cnt) = *(b_src + len -  cnt);
-			cnt++;
-		}
 	}
-	return (dst);
+	return (0);
 }

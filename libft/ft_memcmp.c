@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seongjuncho <seongjch@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/24 06:55:38 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/01/07 17:00:24 by seongjuncho      ###   ########.fr       */
+/*   Created: 2021/12/25 06:38:18 by seongjuncho       #+#    #+#             */
+/*   Updated: 2022/02/04 17:53:49 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+#include "libft.h"
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*b_dst;
-	unsigned char	*b_src;
-	unsigned int	cnt;
+	unsigned char	*b_s1;
+	unsigned char	*b_s2;
+	size_t	cnt;
 
+	if (n == 0)
+		return (0);
+	b_s1 = (unsigned char *)s1;
+	b_s2 = (unsigned char *)s2;
 	cnt = 0;
-	b_src = src;
-	b_dst = dst;
-
-	if (dst < src)
+	while (cnt < n)
 	{
-		while (cnt < len)
-		{
-			*(b_dst + cnt) = *(b_src + cnt);
-			cnt++;
-		}
+		if (b_s1[cnt] != b_s2[cnt])
+			return ((int)(b_s1[cnt] - b_s2[cnt]));
+		cnt ++;
 	}
-	else
-	{
-		cnt++;
-		while (cnt < len)
-		{
-			*(b_dst + len - cnt) = *(b_src + len -  cnt);
-			cnt++;
-		}
-	}
-	return (dst);
+	return (0);
 }

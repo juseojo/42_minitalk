@@ -6,35 +6,33 @@
 /*   By: seongjuncho <seongjch@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/24 06:55:38 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/01/07 17:00:24 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/04 17:35:16 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	unsigned char	*b_dst;
 	unsigned char	*b_src;
-	unsigned int	cnt;
 
-	cnt = 0;
-	b_src = src;
-	b_dst = dst;
-
+	if (dst == 0 && src == 0)
+		return (0);
+	b_src = (unsigned char *)src;
+	b_dst = (unsigned char *)dst;
 	if (dst < src)
 	{
-		while (cnt < len)
+		while (len--)
 		{
-			*(b_dst + cnt) = *(b_src + cnt);
-			cnt++;
+			*b_dst++ = *b_src++;
 		}
 	}
 	else
 	{
-		cnt++;
-		while (cnt < len)
+		while (len--)
 		{
-			*(b_dst + len - cnt) = *(b_src + len -  cnt);
-			cnt++;
+			*(b_dst + len) = *(b_src + len);
 		}
 	}
 	return (dst);
