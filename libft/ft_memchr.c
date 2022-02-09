@@ -6,7 +6,7 @@
 /*   By: seongjuncho <seongjch@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 00:59:51 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/04 17:40:31 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/09 17:31:17 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	char	*b_s;
-	size_t		cnt;
+	size_t	cnt;
 
 	cnt = 0;
 	b_s = (char *)s;

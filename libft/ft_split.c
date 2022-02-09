@@ -6,8 +6,9 @@
 /*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:48:42 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/08 20:24:22 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/10 01:45:49 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
+/*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
@@ -29,9 +30,7 @@ int	word_count(char const *s, char c)
 			str_flag = 1;
 		}
 		if (s[i] == c)
-		{
 			str_flag = 0;
-		}
 		i++;
 	}
 	return (word);
@@ -42,37 +41,31 @@ int	spl_mem(char const *s, char c, char **result)
 	int	i;
 	int	len;
 	int	j;
-	int	str_flag;
 
 	i = 0;
 	j = 0;
-	str_flag = 0;
 	len = 0;
-	while (s[i] != 0)
+	while (s[i] || len != 0)
 	{
- 		if (s[i] != c)
-		{
+		if (s[i] != c)
 			len++;
-			str_flag = 1;
-		}
-		if (str_flag == 1 && s[i] == c)
+		if ((s[i - 1] != c && s[i] == c) || (!s[i] && len != 0))
 		{
-			if (!(result[j] = (char *)malloc(len + 1)))
+			result[j] = (char *)malloc(len + 1);
+			if (result[j] == 0)
 				return (0);
+			if (s[i] == 0)
+				break ;
 			len = 0;
 			j++;
-			str_flag = 0;
 		}
 		i++;
 	}
-	if (len != 0 && !(result[j] = (char *)malloc(len + 1)))
-		return (0);
 	return (1);
 }
 
-char	**ft_split(char const *s, char c)
+void	spl(char const *s, char c, char **result)
 {
-	char	**result;
 	int	i;
 	int	j;
 	int	k;
@@ -80,17 +73,6 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	k = 0;
-	if (c == '\0')
-	{
-		result = malloc(0);
-		return (result);
-	}
-	if (!(result = (char **)malloc(sizeof(char *) * word_count(s, c))))
-			return (0);
-	if (!(spl_mem(s, c, result)))
-		return (0);
-	while (s[i] == c)
-		i++;
 	while (s[i] != 0)
 	{
 		if (s[i] != c)
@@ -106,5 +88,26 @@ char	**ft_split(char const *s, char c)
 		}
 		i++;
 	}
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**result;
+	int		i;
+
+	i = 0;
+	if (c == '\0')
+	{
+		result = malloc(0);
+		return (result);
+	}
+	result = (char **)malloc(sizeof(char *) * word_count(s, c));
+	if (result == 0)
+		return (0);
+	while (s[i] == c)
+		i++;
+	if (!(spl_mem(s + i, c, result)))
+		return (0);
+	spl(s, c, result);
 	return (result);
 }

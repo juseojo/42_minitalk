@@ -6,7 +6,7 @@
 /*   By: seongjch <seongjch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 09:41:16 by seongjch          #+#    #+#             */
-/*   Updated: 2022/02/05 02:56:45 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/09 17:27:25 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,35 +24,33 @@ int	is_space(char ch)
 
 int	cut(char	*str, int *i, int *j)
 {
-	long	count;
-	long	drop;
+	int	minus;
+	int	plus;
 
-	drop = 0;
 	*i = 0;
 	*j = 0;
-	count = 2;
+	minus = 0;
+	plus = 0;
 	while (str[*i] && !('0' <= str[*i] && str[*i] <= '9'))
 	{
 		if (str[*i] == '-')
-			count++;
+			minus++;
+		if (str[*i] == '+')
+			plus++;
 		if (str[*i] != '-' && str[*i] != '+' && !is_space(str[*i]))
 			return (-1);
-		if (drop && (str[*i] == '-' || str[*i] == '+'))
+		if (minus > 1)
 			return (-1);
-		if (str[*i] == '-' || str[*i] == '+')
-			drop = 1;
-		if (drop && is_space(str[*i]))
+		if ((minus > 0 || plus > 0) && is_space(str[*i]))
 			return (-1);
 		*i = *i + 1;
 	}
-	while (str[*i + *j] && '0' <= str[*i + *j] && str[*i + *j] <= '9')
-		*j = *j + 1;
-	if (count % 2 == 0)
-		return (0);
-	return (1);
+	if (minus)
+		return (1);
+	return (0);
 }
 
-long	cul_result(char *str,int sign, int *i, int *j)
+long	cul_result(char *str, int sign, int *i, int *j)
 {
 	long	result;
 	long	dig;
@@ -69,7 +67,7 @@ long	cul_result(char *str,int sign, int *i, int *j)
 			if (sign)
 				return (0);
 			else
-				return(-1);
+				return (-1);
 		}
 		dig *= 10;
 		*j = *j - 1;
@@ -82,9 +80,11 @@ int	ft_atoi(char	*str)
 	int		i;
 	int		j;
 	int		sign_minus;
-	long		result;
+	long	result;
 
 	sign_minus = cut(str, &i, &j);
+	while (str[i + j] && '0' <= str[i + j] && str[i + j] <= '9')
+		j = j + 1;
 	result = cul_result(str, sign_minus, &i, &j);
 	if (sign_minus == -1)
 		return (0);

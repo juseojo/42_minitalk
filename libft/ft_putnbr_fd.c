@@ -6,7 +6,7 @@
 /*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:31:49 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/09 05:10:03 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/09 16:25:29 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long ln;
+	long	ln;	
 
 	ln = n;
 	if (ln < 0)
@@ -26,4 +26,3 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(ln / 10, fd);
 	ft_putchar_fd(ln % 10 + '0', fd);
 }
-

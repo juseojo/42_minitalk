@@ -6,7 +6,7 @@
 /*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 04:09:50 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/09 04:50:56 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/09 16:24:11 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s)); 
+	write(fd, s, ft_strlen(s));
 }
