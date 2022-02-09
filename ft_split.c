@@ -6,7 +6,7 @@
 /*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 01:48:42 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/10 01:45:49 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/10 03:26:46 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /*									      */
 /* ************************************************************************** */
@@ -96,6 +96,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	if (c == '\0')
 	{
 		result = malloc(0);
