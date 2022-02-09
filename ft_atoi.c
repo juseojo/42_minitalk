@@ -6,7 +6,7 @@
 /*   By: seongjch <seongjch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 09:41:16 by seongjch          #+#    #+#             */
-/*   Updated: 2022/02/09 17:27:25 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/10 04:42:23 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	cut(char	*str, int *i, int *j)
 			plus++;
 		if (str[*i] != '-' && str[*i] != '+' && !is_space(str[*i]))
 			return (-1);
-		if (minus > 1)
+		if (minus + plus > 1)
 			return (-1);
 		if ((minus > 0 || plus > 0) && is_space(str[*i]))
 			return (-1);

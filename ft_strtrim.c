@@ -6,7 +6,7 @@
 /*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 23:47:18 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/10 03:24:57 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/10 04:35:30 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1)
 		return (0);
 	len = ft_strlen(s1) + 1;
-	while (ft_strchr(set, s1[len - 1]) && len)
+	while (len && ft_strchr(set, s1[len - 1]))
 		len--;
 	if (len == 0)
 		return ("\0");
