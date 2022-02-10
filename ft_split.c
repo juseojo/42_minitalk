@@ -3,113 +3,87 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: seongjch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/08 01:48:42 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/10 03:26:46 by seongjuncho      ###   ########.fr       */
+/*   Created: 2022/02/10 15:30:43 by seongjch          #+#    #+#             */
+/*   Updated: 2022/02/10 15:39:47 by seongjch         ###   ########.fr       */
 /*                                                                            */
-/*									      */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	word_count(char const *s, char c)
+static int	cnt_words(char const *s, char c)
 {
 	int	i;
-	int	str_flag;
-	int	word;
+	int	count;
 
 	i = 0;
-	word = 0;
-	str_flag = 0;
-	while (s[i] != 0)
+	count = 0;
+	while (s[i])
 	{
-		if (str_flag == 0 && s[i] != c)
-		{
-			word++;
-			str_flag = 1;
-		}
 		if (s[i] == c)
-			str_flag = 0;
-		i++;
+			i++;
+		else
+		{
+			count++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
 	}
+	return (count);
+}
+
+static char	*crt_words(char *word, char const *s, int j, int len)
+{
+	int	i;
+
+	i = 0;
+	while (len > 0)
+		word[i++] = s[j - len--];
+	word[i] = '\0';
 	return (word);
 }
 
-int	spl_mem(char const *s, char c, char **result)
+static char	**spl(char **result, char const *s, char c, int words)
 {
 	int	i;
+	int	j;
 	int	len;
-	int	j;
 
 	i = 0;
-	j = 0;
+	j = 0 ;
 	len = 0;
-	while (s[i] || len != 0)
+	while (s[j] && i < words)
 	{
-		if (s[i] != c)
+		while (s[j] && s[j] == c)
+			j++;
+		while (s[j] && s[j] != c)
+		{
+			j++;
 			len++;
-		if ((s[i - 1] != c && s[i] == c) || (!s[i] && len != 0))
-		{
-			result[j] = (char *)malloc(len + 1);
-			if (result[j] == 0)
-				return (0);
-			if (s[i] == 0)
-				break ;
-			len = 0;
-			j++;
 		}
+		result[i] = (char *)malloc(sizeof(char) * (len + 1));
+		if (!result[i])
+			return (NULL);
+		crt_words (result[i], s, j, len);
+		len = 0;
 		i++;
 	}
-	return (1);
-}
-
-void	spl(char const *s, char c, char **result)
-{
-	int	i;
-	int	j;
-	int	k;
-
-	i = 0;
-	j = 0;
-	k = 0;
-	while (s[i] != 0)
-	{
-		if (s[i] != c)
-		{
-			result[j][k] = s[i];
-			k++;
-		}
-		if (s[i] == c && k)
-		{
-			result[j][k] = 0;
-			k = 0;
-			j++;
-		}
-		i++;
-	}
+	result[i] = 0;
+	return (result);
 }
 
 char	**ft_split(char const *s, char c)
 {
+	int		words;
 	char	**result;
-	int		i;
 
-	i = 0;
-	if (!s)
-		return (0);
-	if (c == '\0')
-	{
-		result = malloc(0);
-		return (result);
-	}
-	result = (char **)malloc(sizeof(char *) * word_count(s, c));
-	if (result == 0)
-		return (0);
-	while (s[i] == c)
-		i++;
-	if (!(spl_mem(s + i, c, result)))
-		return (0);
-	spl(s, c, result);
+	if (s == NULL)
+		return (NULL);
+	words = cnt_words(s, c);
+	result = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!result)
+		return (NULL);
+	spl(result, s, c, words);
 	return (result);
 }
