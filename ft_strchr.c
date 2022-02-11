@@ -6,7 +6,7 @@
 /*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 17:33:44 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/09 16:27:40 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/11 17:22:01 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strchr(const char *s, int c)
 	result = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (unsigned char)c)
 		{
 			return ((char *)s + i);
 		}

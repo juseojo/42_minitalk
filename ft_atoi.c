@@ -6,13 +6,13 @@
 /*   By: seongjch <seongjch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/21 09:41:16 by seongjch          #+#    #+#             */
-/*   Updated: 2022/02/10 04:42:23 by seongjch         ###   ########.fr       */
+/*   Updated: 2022/02/11 15:11:24 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_space(char ch)
+static int	is_space(char ch)
 {
 	if (ch == ' ' || ch == '\n' || ch == '\t' || ch == '\v'\
 			|| ch == '\r' || ch == '\f')
@@ -22,7 +22,7 @@ int	is_space(char ch)
 	return (0);
 }
 
-int	cut(char	*str, int *i, int *j)
+static int	cut(const char	*str, int *i, int *j)
 {
 	int	minus;
 	int	plus;
@@ -50,7 +50,7 @@ int	cut(char	*str, int *i, int *j)
 	return (0);
 }
 
-long	cul_result(char *str, int sign, int *i, int *j)
+static long	cul_result(const char *str, int sign, int *i, int *j)
 {
 	long	result;
 	long	dig;
@@ -75,7 +75,7 @@ long	cul_result(char *str, int sign, int *i, int *j)
 	return (result);
 }
 
-int	ft_atoi(char	*str)
+int	ft_atoi(const char	*str)
 {
 	int		i;
 	int		j;

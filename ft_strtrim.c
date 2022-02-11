@@ -6,47 +6,26 @@
 /*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 23:47:18 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/10 04:35:30 by seongjch         ###   ########.fr       */
+/*   Updated: 2022/02/11 18:45:42 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	trim(char *result, char const *s1, size_t len, size_t i)
-{
-	int	j;
-
-	j = 0;
-	while (i < len)
-	{
-		result[j] = s1[i];
-		j++;
-		i++;
-	}
-	result[j] = 0;
-}
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*result;
 	size_t	len;
 	size_t	i;
-	size_t	j;
 
 	i = 0;
-	j = 0;
-	if (!s1)
+	if (!s1 || !set)
 		return (0);
-	len = ft_strlen(s1) + 1;
-	while (len && ft_strchr(set, s1[len - 1]))
-		len--;
-	if (len == 0)
-		return ("\0");
-	while (ft_strchr(set, s1[i]))
+	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
-	result = (char *)malloc(len - i + 1);
-	if (result == 0)
-		return (0);
-	trim(result, s1, len, i);
+	len = ft_strlen(s1);
+	while (i < len && ft_strchr(set, s1[len - 1]))
+		len--;
+	result = ft_substr(s1, i, len - i);
 	return (result);
 }
