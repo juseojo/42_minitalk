@@ -6,7 +6,7 @@
 #    By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/02 01:43:36 by seongjuncho       #+#    #+#              #
-#    Updated: 2022/02/11 15:01:39 by seongjuncho      ###   ########.fr        #
+#    Updated: 2022/02/12 03:15:06 by seongjuncho      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) -r $@ $?
+	ar -r $@ $?
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $?
