@@ -6,7 +6,7 @@
 /*   By: seongjuncho <seongjch@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 00:59:51 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/11 18:45:59 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/12 14:39:28 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		}
 		cnt++;
 	}
-	return (0);
+	return (NULL);
 }

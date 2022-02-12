@@ -6,7 +6,7 @@
 /*   By: seongjch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:30:43 by seongjch          #+#    #+#             */
-/*   Updated: 2022/02/12 03:22:37 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/12 14:38:38 by seongjuncho      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ static char	**let_free(char **s)
 	size_t	i;
 
 	if (s == 0)
-		return (0);
+		return (NULL);
 	i = 0;
 	while (s[i])
 	{
 		free(s[i]);
-		s[i] = 0;
+		s[i] = NULL;
 		i++;
 	}
 	free(s);
-	s = 0;
-	return (0);
+	s = NULL;
+	return (NULL);
 }
 
 static char	*creat_words(char *word, char const *s, int j, int len)
@@ -101,11 +101,11 @@ char	**ft_split(char const *s, char c)
 	char	**result;
 
 	if (s == 0)
-		return (0);
+		return (NULL);
 	words = cnt_words(s, c);
 	result = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!result)
-		return (0);
+		return (NULL);
 	spl(result, s, c, words);
 	return (result);
 }
