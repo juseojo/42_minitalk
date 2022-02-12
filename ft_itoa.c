@@ -6,13 +6,13 @@
 /*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 20:31:49 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/09 17:04:48 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/12 17:39:07 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*except(int n)
+static char	*except(int n)
 {
 	if (n == 0)
 		return (ft_strdup("0"));
@@ -21,7 +21,7 @@ char	*except(int n)
 	return (0);
 }
 
-char	*insert(int i, long dig, int n, int len)
+static char	*insert(int i, long dig, int n, int len)
 {
 	char	*result;
 

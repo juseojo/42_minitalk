@@ -6,7 +6,7 @@
 /*   By: seongjch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 15:30:43 by seongjch          #+#    #+#             */
-/*   Updated: 2022/02/12 14:38:38 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/02/12 19:39:46 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ static char	**let_free(char **s)
 {
 	size_t	i;
 
-	if (s == 0)
-		return (NULL);
 	i = 0;
 	while (s[i])
 	{
