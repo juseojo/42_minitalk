@@ -6,7 +6,7 @@
 /*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/11 18:44:53 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/08/05 08:03:34 by seongjch         ###   ########.fr       */
+/*   Updated: 2022/08/05 08:09:22 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void	ft_bzero(void	*s, size_t	n);
 void	*ft_calloc(size_t count, size_t size);
-int     ft_isallnum(char *str);
+int		ft_isallnum(char *str);
 int		ft_atoi(const char *str);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -33,7 +33,7 @@ void	*ft_memset(void *ptr, int value, size_t num);
 char	*ft_strchr(const char *s, int c);
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
-size_t		ft_strlen(const char *s);
+size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
@@ -47,9 +47,9 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
-int	ft_putchar_fd(char c, int fd);
-int	ft_putstr_fd(char *s, int fd);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
-int	ft_putnbr_fd(long long n, int fd);
+int		ft_putnbr_fd(long long n, int fd);
 
 #endif
