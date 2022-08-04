@@ -6,14 +6,21 @@
 /*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 04:09:50 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/02/10 03:29:45 by seongjuncho      ###   ########.fr       */
+/*   Updated: 2022/08/05 08:00:57 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	if (s)
-		write(fd, s, ft_strlen(s));
+	{
+		if (write(fd, s, ft_strlen(s)) == -1)
+			return (-1);
+		return (ft_strlen(s));
+	}
+	if (write(fd, "(null)", 6) == -1)
+		return (-1);
+	return (6);
 }
