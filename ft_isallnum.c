@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_isallnum.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: seongjuncho <marvin@42.fr>                 +#+  +:+       +#+        */
+/*   By: seongjch <seongjch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/25 17:33:44 by seongjuncho       #+#    #+#             */
-/*   Updated: 2022/08/04 09:02:04 by seongjch         ###   ########.fr       */
+/*   Created: 2022/08/05 04:57:22 by seongjch          #+#    #+#             */
+/*   Updated: 2022/08/05 05:03:44 by seongjch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_isallnum(char *str)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
-	while (s[i])
+	if (str[i] == '-')
+		i++;
+	while (str[i])
 	{
-		if (s[i] == (unsigned char)c)
-		{
-			return ((char *)s + i);
-		}
+		if (!ft_isdigit(str[i]))
+			return (0);
 		i++;
 	}
-	if (c == 0)
-	{
-		return ((char *)s + i);
-	}
-	return (NULL);
+	return (1);
 }
